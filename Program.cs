@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using telespamer_backend;
 using telespamer_backend.Data;
+using telespamer_backend.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
 
