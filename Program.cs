@@ -9,7 +9,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddDbContext<UsersContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("Local"));
+    if (builder.Environment.IsDevelopment())
+    {
+        options.UseNpgsql(builder.Configuration.GetConnectionString("Local"));
+    }
+    else
+    {
+        options.UseNpgsql(builder.Configuration.GetConnectionString("Default"));
+    }
 });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -21,8 +28,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
 //}
 app.UseHttpsRedirection();
 
