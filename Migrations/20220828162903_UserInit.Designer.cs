@@ -10,7 +10,7 @@ using telespamer_backend.Data;
 
 namespace telespamer_backend.Migrations
 {
-    [DbContext(typeof(UsersContext))]
+    [DbContext(typeof(AppDbContext))]
     [Migration("20220828162903_UserInit")]
     partial class UserInit
     {

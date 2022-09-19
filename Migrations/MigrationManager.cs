@@ -9,7 +9,7 @@ namespace telespamer_backend.Migrations
         {
             using (var scope = webApp.Services.CreateScope())
             {
-                using var appContext = scope.ServiceProvider.GetRequiredService<UsersContext>();
+                using var appContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
                 try
                 {
                     appContext.Database.Migrate();

@@ -10,7 +10,7 @@ using telespamer_backend.Data;
 
 namespace telespamer_backend.Migrations
 {
-    [DbContext(typeof(UsersContext))]
+    [DbContext(typeof(AppDbContext))]
     partial class UsersContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

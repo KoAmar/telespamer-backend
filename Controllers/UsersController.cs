@@ -11,17 +11,17 @@ namespace telespamer_backend.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly UsersContext? _usersContext;
+        private readonly AppDbContext? _appDbContext;
 
-        public UsersController(UsersContext? usersContext)
+        public UsersController(AppDbContext? appDbContext)
         {
-            _usersContext = usersContext;
+            _appDbContext = appDbContext;
         }
         // GET: api/<ValuesController>
         [HttpGet]
         public async Task<ActionResult<User>> Get()
         {
-            var users = await _usersContext!.Users!.ToListAsync();
+            var users = await _appDbContext!.Users!.ToListAsync();
             if (users == null)
             {
                 return BadRequest("Users not fouund.");
